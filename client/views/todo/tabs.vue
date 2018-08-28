@@ -23,25 +23,25 @@ export default {
       required: true
     }
   },
-  data() {
+  data () {
     return {
-      states: ["all", "active", "completed"]
-    };
+      states: ['all', 'active', 'completed']
+    }
   },
   computed: {
-    unFinishedTodoLength() {
-      return this.todos.filter(todo => !todo.computed).length;
+    unFinishedTodoLength () {
+      return this.todos.filter(todo => !todo.computed).length
     }
   },
   methods: {
-    clearAllCompleted() {
-      this.$emit("clearAllCompleted");
+    clearAllCompleted () {
+      this.$emit('clearAllCompleted')
     },
-    toggleFilter(state) {
-      this.$emit("toggle", state);
+    toggleFilter (state) {
+      this.$emit('toggle', state)
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>

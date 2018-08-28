@@ -9,54 +9,53 @@
 
 <script>
 import Item from './item.vue'
-import Tabs  from './tabs.vue'
+import Tabs from './tabs.vue'
 
-let id=0
+let id = 0
 export default {
-    data(){
-      return {
-          todos:[],
-          filter:'all'
-      } 
-    },
-    components:{
-        Item,
-        Tabs
-    },
-    computed:{
-        filteredTodos(){
-            if(this.filter==='all'){
-                return this.todos
-            }
-            const completed=this.filter==='completed';
-            return this.todos.filter(todo=>completed===todo.completed) 
-        }
-    },
-    methods:{
-        addTodo(e){
-            if(e.target.value.trim()==="")
-            {
-                alert("你不输入，我怎么知道你接下来要做什么呢？");
-                e.target.value="";
-                return;
-            }
-            this.todos.unshift({
-                id:id++,
-                content:e.target.value.trim(),  //去空格
-                completed:false
-            })
-            e.target.value=""
-        },
-        deleteTodo(id){
-            this.todos.splice(this.todos.findIndex(todo=>todo.id===id),1)
-        },
-        toggleFilter(state){
-            this.filter=state
-        },
-        clearAllCompleted(){
-            this.todos=this.todos.filter(todo=>!todo.completed)
-        }
+  data () {
+    return {
+      todos: [],
+      filter: 'all'
     }
+  },
+  components: {
+    Item,
+    Tabs
+  },
+  computed: {
+    filteredTodos () {
+      if (this.filter === 'all') {
+        return this.todos
+      }
+      const completed = this.filter === 'completed'
+      return this.todos.filter(todo => completed === todo.completed)
+    }
+  },
+  methods: {
+    addTodo (e) {
+      if (e.target.value.trim() === '') {
+        window.alert('你不输入，我怎么知道你接下来要做什么呢？')
+        e.target.value = ''
+        return
+      }
+      this.todos.unshift({
+        id: id++,
+        content: e.target.value.trim(), // 去空格
+        completed: false
+      })
+      e.target.value = ''
+    },
+    deleteTodo (id) {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
+    },
+    toggleFilter (state) {
+      this.filter = state
+    },
+    clearAllCompleted () {
+      this.todos = this.todos.filter(todo => !todo.completed)
+    }
+  }
 }
 </script>
 
