@@ -62,9 +62,9 @@ export default {
 
 <style lang="stylus" scoped>
     .real-app {
-        width 700px
-        margin 0 auto
-        box-shadow 0 0 5px #666
+        width: 700px;
+        margin: 0 auto;
+        box-shadow: 0 0 5px #666;
     }
     .add-input {
         position: relative;

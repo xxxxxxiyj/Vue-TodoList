@@ -59,7 +59,7 @@ if (isDev) {     //开发环境（run dev)
 } else {    //正式环境(run build)
 	config = merge(baseConfig, {
 		entry: {  // 分离JS文件
-			app: path.join(__dirname, '../src/index.js'),
+			app: path.join(__dirname, '../client/index.js'),
 			// vendor: ['vue']
 		},
 		output: {
